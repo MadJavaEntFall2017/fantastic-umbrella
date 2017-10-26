@@ -21,3 +21,7 @@
     * Simple form to kick off request (button ONLY)
     * Show response on webpage
 * Host this
+* Design database (Brooke)
+* Write program to consume data and write to file to make inserts (Collin)
+* 
+    

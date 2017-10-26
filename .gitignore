@@ -23,3 +23,6 @@ hs_err_pid*
 
 # intelliJ configuration
 .idea
+
+# Mac users
+.DS_STORE

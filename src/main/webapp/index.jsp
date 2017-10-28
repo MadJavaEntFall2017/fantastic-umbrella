@@ -1,5 +1,7 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+    <h1>Place holder page for now</h1>
+
+    <a href="kmf/simpleForm.jsp">Simple form</a>
 </body>
 </html>

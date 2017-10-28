@@ -21,7 +21,12 @@
     * Simple form to kick off request (button ONLY)
     * Show response on webpage
 * Host this
-* Design database (Brooke)
-* Write program to consume data and write to file to make inserts (Collin)
-* 
-    
+
+# Goals
+[x] Design database (Brooke)
+[ ] Write program to consume data and write to file to make inserts (Collin)
+[ ] Make JSP to act as home page (Jake)
+[x] Add logging (Group)
+[ ] Make a DAO (Brooke)
+[ ] Create rest thing (Justin)
+[ ] get milkshakes (Group)

@@ -8,7 +8,7 @@ create table people (
 	gender varchar(20),
 	name varchar(50),
 	description varchar(1000),
-	image_url varchar(60),
+	image_url varchar(300),
 	primary key (id)
 );
 

@@ -9,23 +9,9 @@ public class PersonTest {
     Person person;
     @Before
     public void setUp() throws Exception {
-        person = new Person(1, "male", "Test Name", "Special Person", "newImage.jpg");
+        person = new Person("male", "Test Name", "Special Person", "newImage.jpg");
     }
 
-    @Test
-    public void getId() {
-        int id = person.getId();
-
-        assertEquals("The correct id was not returned", 1, id);
-    }
-
-    @Test
-    public void setId() {
-        int id = 2;
-        person.setId(id);
-
-        assertNotEquals("The id was not set correctly.", person.getId(), 1);
-    }
 
     @Test
     public void getGender() {
@@ -89,7 +75,7 @@ public class PersonTest {
 
     @Test
     public void equals() {
-        Person person1 = new Person(1, "male", "Test Name", "Special Person", "newImage.jpg");
+        Person person1 = new Person("male", "Test Name", "Special Person", "newImage.jpg");
         Boolean test = person.equals(person1);
         assertTrue("The person do not equal", test);
     }
@@ -97,7 +83,7 @@ public class PersonTest {
     @Test
     public void testHashCode() {
         int hashCode = person.hashCode();
-        Person person1 = new Person(1, "male", "Test Name", "Special Person", "newImage.jpg");
+        Person person1 = new Person( "male", "Test Name", "Special Person", "newImage.jpg");
 
         assertEquals("The hashcode did not parse", hashCode, person1.hashCode());
     }

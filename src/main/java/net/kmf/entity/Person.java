@@ -8,11 +8,16 @@ import javax.persistence.*;
 @Entity
 @Table (name = "person")
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
     private int id;
+
+
     private String gender;
     private String name;
     private String description;
-    private String imageUrl;
+    private String image_url;
 
     /**
      * Instantiates a new Person.
@@ -23,39 +28,19 @@ public class Person {
     /**
      * Instantiates a new Person.
      *
-     * @param id          the id
      * @param gender      the gender
      * @param name        the name
      * @param description the description
      * @param imageUrl    the image url
      */
-    public Person(int id, String gender, String name, String description, String imageUrl) {
-        this.id = id;
+    public Person(String gender, String name, String description, String imageUrl) {
         this.gender = gender;
         this.name = name;
         this.description = description;
-        this.imageUrl = imageUrl;
+        this.image_url = imageUrl;
     }
 
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    @Id
-    @Column(name = "id", nullable = false)
-    public int getId() {
-        return id;
-    }
 
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
 
     /**
      * Gets gender.
@@ -125,7 +110,7 @@ public class Person {
     @Basic
     @Column(name = "image_url", nullable = true, length = 300)
     public String getImageUrl() {
-        return imageUrl;
+        return image_url;
     }
 
     /**
@@ -134,7 +119,7 @@ public class Person {
      * @param imageUrl the image url
      */
     public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+        this.image_url = imageUrl;
     }
 
     @Override
@@ -148,7 +133,7 @@ public class Person {
         if (gender != null ? !gender.equals(person.gender) : person.gender != null) return false;
         if (name != null ? !name.equals(person.name) : person.name != null) return false;
         if (description != null ? !description.equals(person.description) : person.description != null) return false;
-        if (imageUrl != null ? !imageUrl.equals(person.imageUrl) : person.imageUrl != null) return false;
+        if (image_url != null ? !image_url.equals(person.image_url) : person.image_url != null) return false;
 
         return true;
     }
@@ -159,7 +144,7 @@ public class Person {
         result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (imageUrl != null ? imageUrl.hashCode() : 0);
+        result = 31 * result + (image_url != null ? image_url.hashCode() : 0);
         return result;
     }
 }

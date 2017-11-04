@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +45,7 @@ public class PersonDao {
      * @param id people's id
      * @return Person people
      */
-    public Person getPeople(int id) {
+    public Person getPerson(int id) {
         Person person = null;
         Session session = null;
         try {
@@ -66,7 +67,7 @@ public class PersonDao {
      * @param name the name
      * @return Person peoples by last name
      */
-    public List<Person> getPeoplesByName(String name) {
+    public List<Person> getPersonByName(String name) {
         List<Person> people = new ArrayList<Person>();
         Session session = null;
         try {
@@ -97,7 +98,7 @@ public class PersonDao {
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             transaction = session.beginTransaction();
-            session.save(person);
+            id = (int) session.save(person);
             transaction.commit();
         } catch (HibernateException he){
             if (transaction != null) {
@@ -146,23 +147,28 @@ public class PersonDao {
     /**
      * remove person
      *
-     * @param person person to delete
+     * @param type the type
+     * @param id   the id
+     * @return the boolean
      */
-    public void delete(Person person) {
+    public boolean deleteById(Class<?> type, Serializable id) {
         Transaction transaction = null;
         Session session = null;
+        boolean bool = false;
 
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             transaction = session.beginTransaction();
-            session.delete(person);
+            Object persistentInstance = session.load(type, id);
+            session.delete(persistentInstance);
             transaction.commit();
+            bool = true;
         } catch (HibernateException he) {
             if (transaction != null) {
                 try {
                     transaction.rollback();
                 } catch (HibernateException he2) {
-                    log.error("Error rolling back delete of person: " + person, he2);
+                    log.error("Error rolling back delete of person: " + id, he2);
                 }
             }
         } finally {
@@ -170,5 +176,7 @@ public class PersonDao {
                 session.close();
             }
         }
+
+        return  bool;
     }
 }

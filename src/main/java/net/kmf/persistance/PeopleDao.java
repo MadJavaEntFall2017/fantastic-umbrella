@@ -11,6 +11,9 @@ import org.hibernate.criterion.Restrictions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type People dao.
+ */
 public class PeopleDao {
     private final Logger log = Logger.getLogger(this.getClass());
 
@@ -58,21 +61,21 @@ public class PeopleDao {
     }
 
     /**
-     * Retrieve peoples by lastname
+     * Retrieve peoples by name
      *
-     * @param lastName People's last name which is the search criteria
+     * @param name the name
      * @return People peoples by last name
      */
-    public List<People> getPeoplesByLastName(String lastName) {
+    public List<People> getPeoplesByName(String name) {
         List<People> peoples = new ArrayList<People>();
         Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             Criteria criteria = session.createCriteria(People.class);
-            criteria.add(Restrictions.eq("lastName", lastName));
+            criteria.add(Restrictions.eq("name", name));
             peoples = criteria.list();
         } catch (HibernateException he) {
-            log.error("Error getting all peoples with last name: " + lastName, he);
+            log.error("Error getting all peoples with last name: " + name, he);
         } finally {
             if (session != null) {
                 session.close();
@@ -141,9 +144,9 @@ public class PeopleDao {
     }
 
     /**
-     *  remove people
+     * remove people
      *
-     *  @param people people to delete
+     * @param people people to delete
      */
     public void delete(People people) {
         Transaction transaction = null;

@@ -27,6 +27,6 @@
 [ ] Write program to consume data and write to file to make inserts (Collin)
 [ ] Make JSP to act as home page (Jake)
 [x] Add logging (Group)
-[ ] Make a DAO (Brooke)
+[x] Make a DAO (Brooke)
 [ ] Create rest thing (Justin)
 [ ] get milkshakes (Group)

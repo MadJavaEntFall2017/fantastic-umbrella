@@ -2,8 +2,8 @@ drop database if exists fantastic_umbrella;
 create database fantastic_umbrella;
 
 use fantastic_umbrella;
-drop table if exists people;
-create table people (
+drop table if exists person;
+create table person (
 	id int(11) not null auto_increment,
 	gender varchar(20),
 	name varchar(50),

@@ -1,6 +1,6 @@
 package net.kmf.persistance;
 
-import net.kmf.entity.People;
+import net.kmf.entity.Person;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,16 +8,16 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class PeopleDaoTest {
-    PeopleDao peopleDao;
-    List<People> people;
+public class PersonDaoTest {
+    PersonDao personDao;
+    List<Person> people;
     int numberOfUsers;
     int lastUserCreated;
 
     @Before
     public void setUp() throws Exception {
-        peopleDao = new PeopleDao();
-        people = peopleDao.getAllPeoples();
+        personDao = new PersonDao();
+        people = personDao.getAllPeoples();
         numberOfUsers = people.size();
     }
 
@@ -33,15 +33,18 @@ public class PeopleDaoTest {
     }
 
     @Test
-    public void getPeoplesByLastName() {
+    public void getPeoplesByName() {
+        String name = "Claribel Heaney";
+        int numberOfPeopleReturned = personDao.getPeoplesByName(name).size();
 
+        assertEquals("The number of people returned was not correct", 1, numberOfPeopleReturned);
     }
 
     @Test
     public void insert() {
-        People people = new People(1, "male", "Test Name", "Special Person", "newImage.jpg");
-        lastUserCreated = peopleDao.insert(people);
-        int newNumberOfPeople = peopleDao.getAllPeoples().size();
+        Person person = new Person(1, "male", "Test Name", "Special Person", "newImage.jpg");
+        lastUserCreated = personDao.insert(person);
+        int newNumberOfPeople = personDao.getAllPeoples().size();
 
         assertEquals("The user count did not go up by one with insert.", numberOfUsers + 1, newNumberOfPeople);
         assertTrue("The user id was not returned", lastUserCreated > 50);

@@ -1,15 +1,13 @@
 package net.kmf.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
- * The type People.
+ * The type Person.
  */
 @Entity
-public class People {
+@Table (name = "person")
+public class Person {
     private int id;
     private String gender;
     private String name;
@@ -17,13 +15,13 @@ public class People {
     private String imageUrl;
 
     /**
-     * Instantiates a new People.
+     * Instantiates a new Person.
      */
-    public People() {
+    public Person() {
     }
 
     /**
-     * Instantiates a new People.
+     * Instantiates a new Person.
      *
      * @param id          the id
      * @param gender      the gender
@@ -31,7 +29,7 @@ public class People {
      * @param description the description
      * @param imageUrl    the image url
      */
-    public People(int id, String gender, String name, String description, String imageUrl) {
+    public Person(int id, String gender, String name, String description, String imageUrl) {
         this.id = id;
         this.gender = gender;
         this.name = name;
@@ -125,7 +123,7 @@ public class People {
      * @return the image url
      */
     @Basic
-    @Column(name = "image_url", nullable = true, length = 60)
+    @Column(name = "image_url", nullable = true, length = 300)
     public String getImageUrl() {
         return imageUrl;
     }
@@ -144,13 +142,13 @@ public class People {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        People people = (People) o;
+        Person person = (Person) o;
 
-        if (id != people.id) return false;
-        if (gender != null ? !gender.equals(people.gender) : people.gender != null) return false;
-        if (name != null ? !name.equals(people.name) : people.name != null) return false;
-        if (description != null ? !description.equals(people.description) : people.description != null) return false;
-        if (imageUrl != null ? !imageUrl.equals(people.imageUrl) : people.imageUrl != null) return false;
+        if (id != person.id) return false;
+        if (gender != null ? !gender.equals(person.gender) : person.gender != null) return false;
+        if (name != null ? !name.equals(person.name) : person.name != null) return false;
+        if (description != null ? !description.equals(person.description) : person.description != null) return false;
+        if (imageUrl != null ? !imageUrl.equals(person.imageUrl) : person.imageUrl != null) return false;
 
         return true;
     }

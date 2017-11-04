@@ -1,6 +1,6 @@
 package net.kmf.persistance;
 
-import net.kmf.entity.People;
+import net.kmf.entity.Person;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The type People dao.
+ * The type Person dao.
  */
-public class PeopleDao {
+public class PersonDao {
     private final Logger log = Logger.getLogger(this.getClass());
 
     /**
@@ -22,36 +22,14 @@ public class PeopleDao {
      *
      * @return All peoples
      */
-    public List<People> getAllPeoples() {
-        List<People> peoples = new ArrayList<People>();
+    public List<Person> getAllPeoples() {
+        List<Person> people = new ArrayList<Person>();
         Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
-            peoples = session.createCriteria(People.class).list();
+            people = session.createCriteria(Person.class).list();
         } catch (HibernateException he) {
-            log.error("Error getting all peoples", he);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        return peoples;
-    }
-
-    /**
-     * Get a single people for the given id
-     *
-     * @param id people's id
-     * @return People people
-     */
-    public People getPeople(int id) {
-        People people = null;
-        Session session = null;
-        try {
-            session = SessionFactoryProvider.getSessionFactory().openSession();
-            people = (People) session.get(People.class, id);
-        } catch (HibernateException he) {
-            log.error("Error getting people with id: " + id, he);
+            log.error("Error getting all people", he);
         } finally {
             if (session != null) {
                 session.close();
@@ -61,50 +39,72 @@ public class PeopleDao {
     }
 
     /**
-     * Retrieve peoples by name
+     * Get a single people for the given id
      *
-     * @param name the name
-     * @return People peoples by last name
+     * @param id people's id
+     * @return Person people
      */
-    public List<People> getPeoplesByName(String name) {
-        List<People> peoples = new ArrayList<People>();
+    public Person getPeople(int id) {
+        Person person = null;
         Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
-            Criteria criteria = session.createCriteria(People.class);
-            criteria.add(Restrictions.eq("name", name));
-            peoples = criteria.list();
+            person = (Person) session.get(Person.class, id);
         } catch (HibernateException he) {
-            log.error("Error getting all peoples with last name: " + name, he);
+            log.error("Error getting person with id: " + id, he);
         } finally {
             if (session != null) {
                 session.close();
             }
         }
-        return peoples;
+        return person;
     }
 
     /**
-     * save new people
+     * Retrieve peoples by name
      *
-     * @param people people to insert
-     * @return id of the inserted people
+     * @param name the name
+     * @return Person peoples by last name
      */
-    public int insert(People people) {
+    public List<Person> getPeoplesByName(String name) {
+        List<Person> people = new ArrayList<Person>();
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            Criteria criteria = session.createCriteria(Person.class);
+            criteria.add(Restrictions.eq("name", name));
+            people = criteria.list();
+        } catch (HibernateException he) {
+            log.error("Error getting all people with last name: " + name, he);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return people;
+    }
+
+    /**
+     * save new person
+     *
+     * @param person person to insert
+     * @return id of the inserted person
+     */
+    public int insert(Person person) {
         int id = 0;
         Transaction transaction = null;
         Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             transaction = session.beginTransaction();
-            session.save(people);
+            session.save(person);
             transaction.commit();
         } catch (HibernateException he){
             if (transaction != null) {
                 try {
                     transaction.rollback();
                 } catch (HibernateException he2) {
-                    log.error("Error rolling back save of people: " + people, he2);
+                    log.error("Error rolling back save of person: " + person, he2);
                 }
             }
         } finally {
@@ -116,24 +116,24 @@ public class PeopleDao {
     }
 
     /**
-     * save  people
+     * save  person
      *
-     * @param people people to update
+     * @param person person to update
      */
-    public void update(People people) {
+    public void update(Person person) {
         Transaction transaction = null;
         Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             transaction = session.beginTransaction();
-            session.saveOrUpdate(people);
+            session.saveOrUpdate(person);
             transaction.commit();
         } catch (HibernateException he){
             if (transaction != null) {
                 try {
                     transaction.rollback();
                 } catch (HibernateException he2) {
-                    log.error("Error rolling back save of people: " + people, he2);
+                    log.error("Error rolling back save of person: " + person, he2);
                 }
             }
         } finally {
@@ -144,25 +144,25 @@ public class PeopleDao {
     }
 
     /**
-     * remove people
+     * remove person
      *
-     * @param people people to delete
+     * @param person person to delete
      */
-    public void delete(People people) {
+    public void delete(Person person) {
         Transaction transaction = null;
         Session session = null;
 
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             transaction = session.beginTransaction();
-            session.delete(people);
+            session.delete(person);
             transaction.commit();
         } catch (HibernateException he) {
             if (transaction != null) {
                 try {
                     transaction.rollback();
                 } catch (HibernateException he2) {
-                    log.error("Error rolling back delete of people: " + people, he2);
+                    log.error("Error rolling back delete of person: " + person, he2);
                 }
             }
         } finally {

@@ -1,22 +1,22 @@
 # General Design
 
 ## ToDo:
-* Populate list of popular people(/creatures/things)
+* Populate list of popular person(/creatures/things)
     * Search for an API to make this data. Then store locally:
         * Gender
         * Name
         * Reason why famous
         * Short bio
         * Images
-    * Store people in database
+    * Store person in database
 * Figure out what criteria to populate on:
     * Hello world for first iteration
-        * Respond with 3 people
+        * Respond with 3 person
         * Rerun button
     * Possible second iteration
         * Take user's choices for data analytics
         * Track user requests
-        * Populate people based on specific criteria
+        * Populate person based on specific criteria
 * Make a single JSP front-end
     * Simple form to kick off request (button ONLY)
     * Show response on webpage
@@ -25,8 +25,8 @@
 # Goals
 [x] Design database (Brooke)
 [ ] Write program to consume data and write to file to make inserts (Collin)
-[ ] Make JSP to act as home page (Jake)
+[x] Make JSP to act as home page (Jake)
 [x] Add logging (Group)
-[ ] Make a DAO (Brooke)
+[x] Make a DAO (Brooke)
 [ ] Create rest thing (Justin)
 [ ] get milkshakes (Group)

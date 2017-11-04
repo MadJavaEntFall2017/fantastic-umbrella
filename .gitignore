@@ -28,3 +28,6 @@ target/
 
 # Mac users
 .DS_STORE
+/src/main/resources/hibernate.cfg.xml
+src/main/resources/hibernate.cfg.xml
+/src/test/resources/hibernate.cfg.xml

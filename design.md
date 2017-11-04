@@ -25,7 +25,7 @@
 # Goals
 [x] Design database (Brooke)
 [ ] Write program to consume data and write to file to make inserts (Collin)
-[ ] Make JSP to act as home page (Jake)
+[x] Make JSP to act as home page (Jake)
 [x] Add logging (Group)
 [x] Make a DAO (Brooke)
 [ ] Create rest thing (Justin)

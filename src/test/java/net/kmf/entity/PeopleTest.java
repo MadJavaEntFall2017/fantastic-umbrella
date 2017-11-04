@@ -100,8 +100,9 @@ public class PeopleTest {
     @Test
     public void testHashCode() {
         int hashCode = people.hashCode();
+        People people1 = new People(1, "male", "Test Name", "Special Person", "newImage.jpg");
 
-        assertTrue("The hashcode did not parse", hashCode > 0);
+        assertEquals("The hashcode did not parse", hashCode, people1.hashCode());
     }
 
 }

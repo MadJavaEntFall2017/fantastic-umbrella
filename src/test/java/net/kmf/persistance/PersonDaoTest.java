@@ -23,7 +23,7 @@ public class PersonDaoTest {
     @Test
     public void getAllPeoples() {
         assertNotNull("The list of users was not returned", people);
-        assertEquals("The correct number of users was returned", 70, numberOfUsers);
+        assertEquals("The correct number of users was not returned", 50, numberOfUsers);
     }
 
     @Test

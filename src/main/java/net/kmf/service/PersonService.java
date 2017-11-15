@@ -26,28 +26,18 @@ import java.util.stream.IntStream;
 @Path("/person")
 public class PersonService {
     private final Logger log = Logger.getLogger(this.getClass());
+    private PersonDao dao;
 
     @GET
     @Produces("application/json")
     public Response getMessage(@Context UriInfo uriInfo) {
+        dao = new PersonDao();
+        List<Person> people = dao.getAllPeoples();
 
         Response r = null;
         log.debug(uriInfo.getPath());
 
         r = getPersonResponse(ResponseType.JSON);
-
-
-        //String json = "{\"response\": \"This is the people service.\"}";
-//        ObjectMapper mapper = new ObjectMapper();
-//        try {
-//            String json = mapper.writeValueAsString(result);
-//            r = Response.status(200).entity(json).build();
-//        } catch (JsonProcessingException jpe) {
-//            log.error("encountered processing error in PersonService.getMessage", jpe);
-//            r = Response.status(500).entity("{'error':'Invalid JSON request submitted.'}").build();
-//        } catch (Exception e) {
-//            r = Response.status(500).entity("{'error':'We dun goofed. Sorry.'}").build();
-//        }
 
         return r;
     }
@@ -111,8 +101,32 @@ public class PersonService {
         return r;
     }
 
+
     public enum ResponseType {
         JSON,
         XML
     }
+
+    @GET
+    @Path("{id}")
+    public Response getPerson(@PathParam("id") int id) {
+        dao = new PersonDao();
+        Person person = dao.getPerson(id);
+
+        Response r = null;
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            String json = mapper.writeValueAsString(person);
+            r = Response.status(200).entity(json).build();
+        } catch (JsonProcessingException e) {
+            log.error("PersonSerive.getPerson processing error", e);
+            r = Response.status(500).build();
+        }
+
+        return r;
+    }
+
+
 }

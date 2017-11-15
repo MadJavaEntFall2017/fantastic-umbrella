@@ -8,6 +8,10 @@ import javax.persistence.*;
 @Entity
 @Table (name = "person")
 public class Person {
+    public int getId() {
+        return id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, nullable = false)

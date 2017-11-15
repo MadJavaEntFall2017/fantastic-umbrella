@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: brookeswanson
@@ -7,10 +8,22 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>$Title$</title>
-</head>
+<c:import url="jsp_snippets/header-tag.jsp" />
 <body>
-$END$
+<c:import url="jsp_snippets/navbar.jsp" />
+
+<table class="table-hover">
+    <tr><th>Id</th><th>Name</th><th>Gender</th><th>Description</th><th>Image</th></tr>
+    <c:forEach var="person" items="${people}">
+        <tr>
+            <td>${person.id}</td>
+            <td>${person.name}</td>
+            <td>${person.gender}</td>
+            <td>${person.description}</td>
+            <td><<img src="${person.image_url}" alt="${Person.name} image"></td>
+        </tr>
+    </c:forEach>
+
+</table>
 </body>
 </html>

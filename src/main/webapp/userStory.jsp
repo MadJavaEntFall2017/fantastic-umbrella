@@ -16,7 +16,7 @@
     <c:import url="jsp_snippets/navbar.jsp"/>
 
     <div class="container">
-        <form class="form" action="api/person" method="get">
+        <form class="form" action="api/person/story" method="get">
             <div class="form-group">
                 <label for="firstName">First Name:</label>
                 <input type="text" class="form-control" name="firstName" id="firstName"/>

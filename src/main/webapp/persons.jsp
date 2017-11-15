@@ -20,7 +20,7 @@
             <td>${person.name}</td>
             <td>${person.gender}</td>
             <td>${person.description}</td>
-            <td><<img src="${person.image_url}" alt="${Person.name} image"></td>
+            <td><img src="${person.getImageUrl()}" alt="${Person.name} image"></td>
         </tr>
     </c:forEach>
 

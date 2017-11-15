@@ -20,13 +20,15 @@
 
     <div class="container">
         <form action="" method="get">
-            <label for="firstName">First Name:</label>
-            <input type="text" name="firstName" id="firstName"/>
-            <br/>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" name="firstName" id="firstName"/>
+            </div>
 
-            <label for="lastName">Last Name:</label>
-            <input type="text" name="lastName" id="lastName"/>
-            <br/>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" name="lastName" id="lastName"/>
+            </div>
 
             <label>Gender:</label>
             <input type="radio" name="gender" id="gender_male" value="male"/>

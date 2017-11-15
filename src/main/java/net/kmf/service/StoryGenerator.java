@@ -1,5 +1,9 @@
 package net.kmf.service;
 
+import net.kmf.entity.Person;
+
+import java.util.List;
+
 public class StoryGenerator {
 
     public StoryGenerator() {
@@ -33,6 +37,13 @@ public class StoryGenerator {
         result = result.replace("('marry')", marry);
         result = result.replace("('love')", love);
         return result;
+    }
+
+    public String getStoryForTriplet(List<Person> people) {
+        if(people == null || people.size() != 3) {
+            throw new IllegalArgumentException("Invalid number of people provided to getStoryForTriplet");
+        }
+        return formatStory(people.get(0).getName(), people.get(1).getName(), people.get(2).getName(), chooseStory());
     }
 
     /**

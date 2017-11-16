@@ -25,6 +25,7 @@ import java.util.stream.IntStream;
 
 /**
  * The type Person service.
+ *
  */
 @Path("/person")
 public class PersonService {
@@ -69,6 +70,12 @@ public class PersonService {
         return result;
     }
 
+    /**
+     * Get all people in the database
+     *
+     * @param type
+     * @return
+     */
     private Response getPersonResponse(ResponseType type) {
         PersonDao dao = new PersonDao();
         List<Person> people = dao.getAllPeoples();

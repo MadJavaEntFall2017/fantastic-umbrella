@@ -9,6 +9,12 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * Story Service class.
+ * Returns a story with the entered name choices.
+ *
+ * @author jstoffregen 11/01/2017
+ */
 @Path("/story")
 public class StoryService {
     private final Logger log = Logger.getLogger(this.getClass());

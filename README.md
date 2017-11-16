@@ -16,10 +16,10 @@ then lived a long happy life with Tiberius.
 A more detailed look into the project plan can be found [here](design.md).
 
 ### Included URI's:
-- kmf/{category} -> return a random story with 3 person from a given category
-- kmf/{category}/{numberOfPeople} -> return a random story with numberOfPeople from a given category
-- kmf/{numberOfPeople} -> return a story with person randomized from all categories
-- kmf/{numberOfPeople}/{names} -> using the provided names give a story
+- [Story with 3 random celebrities](http://18.221.209.59:8080/kmf/api/person/story) -> return a random story with 3 person from a given category
+- [Celebrities](http://18.221.209.59:8080/kmf/api/person) -> return all people
+- [Celebrity](http://18.221.209.59:8080/kmf/api/person/2) -> return a one celebrity
+- [Create a unique user story](http://18.221.209.59:8080/kmf/api/story/userStory?killChoice=Collin&marryChoice=Justin&loveChoice=Jake) -> return a story with input parameters
 
 ## Technology Requirements
 

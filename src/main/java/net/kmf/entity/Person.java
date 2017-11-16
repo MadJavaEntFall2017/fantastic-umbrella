@@ -8,6 +8,15 @@ import javax.persistence.*;
 @Entity
 @Table (name = "person")
 public class Person {
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", updatable = false, nullable = false)
@@ -39,7 +48,6 @@ public class Person {
         this.description = description;
         this.image_url = imageUrl;
     }
-
 
 
     /**

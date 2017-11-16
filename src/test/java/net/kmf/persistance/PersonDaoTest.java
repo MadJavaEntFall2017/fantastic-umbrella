@@ -23,7 +23,7 @@ public class PersonDaoTest {
     @Test
     public void getAllPeoples() {
         assertNotNull("The list of users was not returned", people);
-        assertEquals("The correct number of users was not returned", 50, numberOfUsers);
+        assertEquals("The correct number of users was not returned", 70, numberOfUsers);
     }
 
     @Test
@@ -39,9 +39,18 @@ public class PersonDaoTest {
     @Test
     public void getPeoplesByName() {
         String name = "Udall Stelfox"; // name from input list
-        int numberOfPeopleReturned = personDao.getPersonByName(name).size();
+        List<Person> udall = personDao.getPersonByName(name);
+        int numberOfPeopleReturned = udall.size();
 
+        assertNotEquals("The person returned was correct",
+                udall,
+                new Person("female", "Udall Stelfox", "cultivate frictionless networks", "https://robohash.org/atquoiste.bmp?size=50x50&set=set1"));
         assertEquals("The number of people returned was not correct", 1, numberOfPeopleReturned);
+    }
+
+    @Test(expected = Test.None.class /* no exception expected */)
+    public void testPeopleByNameException() {
+        personDao.getPersonByName("not a name at all");
     }
 
     @Test

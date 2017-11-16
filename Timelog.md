@@ -22,3 +22,4 @@
 * Created tests for DAO/Base entities - Brooke
 * Data mined and created sql statement for data - Collin
 * Added base API using jersey - Justin
+* Added a basic front end - Brooke

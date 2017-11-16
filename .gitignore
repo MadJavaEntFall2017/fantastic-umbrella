@@ -31,3 +31,5 @@ target/
 /src/main/resources/hibernate.cfg.xml
 src/main/resources/hibernate.cfg.xml
 /src/test/resources/hibernate.cfg.xml
+/logs/
+/src/main/resources/log4j.properties

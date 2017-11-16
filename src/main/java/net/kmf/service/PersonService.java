@@ -23,11 +23,20 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * The type Person service.
+ */
 @Path("/person")
 public class PersonService {
     private final Logger log = Logger.getLogger(this.getClass());
     private PersonDao dao;
 
+    /**
+     * Gets message.
+     *
+     * @param uriInfo the uri info
+     * @return the message
+     */
     @GET
     @Produces("application/json")
     public Response getMessage(@Context UriInfo uriInfo) {
@@ -43,10 +52,11 @@ public class PersonService {
     }
 
     /**
-     *  Generate result set.
+     * Generate result set.
      * shamelessly stolen from the stream response
      * from https://stackoverflow.com/questions/8378752/pick-multiple-random-elements-from-a-list-in-java
-     * @param people
+     *
+     * @param people the people
      * @return random triplet of people
      */
     public List<Person> getRandomTriplet(List<Person> people) {
@@ -77,6 +87,11 @@ public class PersonService {
         return r;
     }
 
+    /**
+     * Gets person story response.
+     *
+     * @return the person story response
+     */
     @GET
     @Path("/story")
     @Produces("application/json")
@@ -102,11 +117,26 @@ public class PersonService {
     }
 
 
+    /**
+     * The enum Response type.
+     */
     public enum ResponseType {
+        /**
+         * Json response type.
+         */
         JSON,
+        /**
+         * Xml response type.
+         */
         XML
     }
 
+    /**
+     * Gets person.
+     *
+     * @param id the id
+     * @return the person
+     */
     @GET
     @Path("{id}")
     public Response getPerson(@PathParam("id") int id) {

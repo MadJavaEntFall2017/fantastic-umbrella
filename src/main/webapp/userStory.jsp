@@ -16,27 +16,20 @@
     <c:import url="jsp_snippets/navbar.jsp"/>
 
     <div class="container">
-        <form class="form" action="api/person/story" method="get">
+        <form class="form" action="api/story/userStory" method="get">
             <div class="form-group">
-                <label for="firstName">First Name:</label>
-                <input type="text" class="form-control" name="firstName" id="firstName"/>
+                <label for="killChoice">Who should we kill?</label>
+                <input type="text" class="form-control" name="killChoice" id="killChoice"/>
             </div>
 
             <div class="form-group">
-                <label for="lastName">Last Name:</label>
-                <input type="text" class="form-control" name="lastName" id="lastName"/>
+                <label for="marryChoice">Who do you want to marry?</label>
+                <input type="text" class="form-control" name="marryChoice" id="marryChoice"/>
             </div>
 
             <div class="form-group">
-                <label class="radio-inline">
-                    <input type="radio" name="gender" id="gender_male" value="male"/>
-                    Male
-                </label>
-
-                <label class="radio-inline">
-                    <input type="radio" name="gender" id="gender_female" value="female"/>
-                    Female
-                </label>
+                <label for="loveChoice">Who are you going to Love?</label>
+                <input type="text" class="form-control" name="loveChoice" id="loveChoice"/>
             </div>
 
             <input type="submit" class="btn btn-primary" value="Submit"/>

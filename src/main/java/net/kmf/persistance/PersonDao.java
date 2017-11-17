@@ -14,6 +14,9 @@ import java.util.List;
 
 /**
  * The type Person dao.
+ * Hibernate connection to the database and person table.
+ *
+ * @author bswanson 10/30/17
  */
 public class PersonDao {
     private final Logger log = Logger.getLogger(this.getClass());

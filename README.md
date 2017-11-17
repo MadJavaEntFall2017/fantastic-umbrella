@@ -16,10 +16,11 @@ then lived a long happy life with Tiberius.
 A more detailed look into the project plan can be found [here](design.md).
 
 ### Included URI's:
-- [Story with 3 random celebrities](http://18.221.209.59:8080/kmf/api/person/story) -> return a random story with 3 person from a given category
-- [Celebrities](http://18.221.209.59:8080/kmf/api/person) -> return all people
-- [Celebrity](http://18.221.209.59:8080/kmf/api/person/2) -> return a one celebrity
-- [Create a unique user story](http://18.221.209.59:8080/kmf/api/story/userStory?killChoice=Collin&marryChoice=Justin&loveChoice=Jake) -> return a story with input parameters
+- base endpoint http://18.221.209.59:8080/kmf/api/
+- [Story with 3 random celebrities {person/story}](http://18.221.209.59:8080/kmf/api/person/story) -> return a random story with 3 person from a given category
+- [Celebrities {person}](http://18.221.209.59:8080/kmf/api/person) -> return all people
+- [Celebrity {person/{id}}](http://18.221.209.59:8080/kmf/api/person/2) -> return a one celebrity
+- [Create a unique user story {story/userStory?parameters}](http://18.221.209.59:8080/kmf/api/story/userStory?killChoice=Collin&marryChoice=Justin&loveChoice=Jake) -> return a story with input parameters
 
 ## Technology Requirements
 

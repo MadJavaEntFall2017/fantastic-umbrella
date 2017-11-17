@@ -7,17 +7,14 @@ import net.kmf.persistance.PersonDao;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
-import org.glassfish.jersey.uri.UriTemplate;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -25,7 +22,11 @@ import java.util.stream.IntStream;
 
 /**
  * The type Person service.
+ * kmf/api/person (everyone in the database)
+ * kmf/api/person/{id} (a single person with the id or an error message)
+ * kmf/api/person/story (3 random people put into a story)
  *
+ * @author jskarha 11/15/2017
  */
 @Path("/person")
 public class PersonService {
@@ -114,9 +115,6 @@ public class PersonService {
             JsonStringEncoder enc = JsonStringEncoder.getInstance();
             String json = new String(enc.quoteAsString("{'story':'" + result + "'}"));
             r = Response.status(200).entity(json).build();
-//        } catch (JsonProcessingException jpe) {
-//            log.error("encountered processing error in PersonService.getMessage", jpe);
-//            r = Response.status(500).entity("{'error':'Invalid JSON request submitted.'}").build();
         } catch (Exception e) {
             r = Response.status(500).entity("{'error':'We dun goofed. Sorry.'}").build();
         }
@@ -139,7 +137,7 @@ public class PersonService {
     }
 
     /**
-     * Gets person.
+     * Gets a single person.
      *
      * @param id the id
      * @return the person
@@ -158,7 +156,7 @@ public class PersonService {
             String json = mapper.writeValueAsString(person);
             r = Response.status(200).entity(json).build();
         } catch (JsonProcessingException e) {
-            log.error("PersonSerive.getPerson processing error", e);
+            log.error("PersonService.getPerson processing error", e);
             r = Response.status(500).build();
         }
 

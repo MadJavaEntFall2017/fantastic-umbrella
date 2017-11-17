@@ -4,8 +4,16 @@ import net.kmf.entity.Person;
 
 import java.util.List;
 
+/**
+ * The Story generator class.
+ *
+ * @author jstoffregen 11/01/2017
+ */
 public class StoryGenerator {
-
+    /**
+     * Empty constructor for the story Generator
+     * TODO: make a Story Dao
+     */
     public StoryGenerator() {
     }
 
@@ -83,7 +91,7 @@ public class StoryGenerator {
             case 13:
                 return "In this story, a clumsy zookeeper ('love') attends a social event and meets ('marry') whose world is threatened by a space disaster. What starts as detachment becomes infatuation - all thanks to longing. What role will a fisherman named ('kill') searching for truth play in their relationship?";
             case 14:
-                return "This story starts in a coffee shope. In it, an unhappy college student named ('marry') accidentally runs into the elegant ('kill'). What starts as contempt becomes love - all thanks to ('love')'s efforts.";
+                return "This story starts in a coffee shop. In it, an unhappy college student named ('marry') accidentally runs into the elegant ('kill'). What starts as contempt becomes love - all thanks to ('love')'s efforts.";
             case 15:
                 return "In this story, a delusional ('marry') is forced to live with an unremarkable ('love'). What starts as friendship soon turns into obsessive love. Yet, how can ('kill') who loves children tear them apart?";
             case 16:

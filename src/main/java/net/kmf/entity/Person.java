@@ -4,6 +4,8 @@ import javax.persistence.*;
 
 /**
  * The type Person.
+ * This represents a entity in the People table.
+ * @author bswanson 10/30/2017
  */
 @Entity
 @Table (name = "person")
@@ -130,6 +132,11 @@ public class Person {
         this.image_url = imageUrl;
     }
 
+    /**
+     * An override of the equals object method.
+     * @param o the object to check
+     * @return equal or not equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -146,6 +153,10 @@ public class Person {
         return true;
     }
 
+    /**
+     * Overrides the hashcode method to represent this object.
+     * @return the encoded id.
+     */
     @Override
     public int hashCode() {
         int result = id;
